@@ -21,25 +21,15 @@
     <sup>*</sup>Equal Contribution &emsp;
     <sup>&#8224;</sup>Corresponding Author
   </div>
-
-  <br>
-
-  <div style="text-decoration: none !important;">
-    <a href="https://github.com/HaoZhang1018/CoBiTrans" target="_blank" style="text-decoration: none !important; border: none !important;">
-      <img src="https://img.shields.io/badge/🌟-Code-blue?style=for-the-badge&logo=github" alt="Code" style="border: none !important; box-shadow: none !important;">
-    </a>
-    <img src="https://img.shields.io/badge/Paper-Under%20Review-lightgrey?style=for-the-badge" alt="Paper Status">
-    <img src="https://img.shields.io/badge/Task-VIS%20↔%20IR-6f42c1?style=for-the-badge" alt="VIS-IR Translation">
-  </div>
 </div>
 
 ## 🔎 Method Overview
 
-###  Motivation
+### 💡 Motivation
 
 <img src="figure/1.png" width="60%"/>
 
-###  Framework
+### 🖼️ Framework
 
 <img src="figure/2.png" width="90%"/>
 
@@ -78,10 +68,8 @@ CoBiTrans/
 │   ├── control_sd21_ini.ckpt
 │   └── open_clip_model.safetensors
 └── checkpoints/
-    └── model-epoch=60.ckpt
+    └── last.ckpt
 ```
-
-Please also update `pretrained_path` in `models/cldm_v21.yaml` to the local path of `open_clip_model.safetensors`.
 
 ## 🗂️ Dataset Preparation
 
@@ -129,7 +117,7 @@ Generate a visible image. Daytime.
 Generate a visible image. Nighttime.
 ```
 
-## 🏋️ Training
+## 🔥 Training
 
 Edit the configurations in `tutorial_train.py`, including `resume_path`, `gpu_ids`, `batch_size`, `learning_rate`, and checkpoint settings. Then run:
 
@@ -145,7 +133,7 @@ Edit the following paths at the beginning of `test.py`:
 
 ```python
 config_path = "./models/cldm_v21.yaml"
-ckpt_path = "./checkpoints/model-epoch=60.ckpt"
+ckpt_path = "./checkpoints/last.ckpt"
 json_path = "./dataset/test.json"
 data_root = "./dataset"
 save_dir = "./results"
