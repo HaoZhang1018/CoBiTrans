@@ -67,7 +67,9 @@
     
  ## 📥 Pre-trained Weights
 
- Before training or testing, prepare the following files:
+ The pretrained weights of CoBiTrans are available on
+[Google Drive](https://drive.google.com/drive/folders/19BlIVOzIX5hxmyXOd0ZGLhyIhjW6j6n6?usp=drive_link).
+Please place the downloaded files in the following directory:
 
 ```text
 CoBiTrans/
