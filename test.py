@@ -12,7 +12,7 @@ from cldm.ddim_hacked import DDIMSampler
 # 配置
 # =====================
 config_path = "./models/cldm_v21.yaml"
-ckpt_path = "./checkpoints/model-epoch=60.ckpt"
+ckpt_path = "./checkpoints/last.ckpt"
 json_path = "./dataset/test.json"
 data_root = "./dataset"
 save_dir = "./results"
