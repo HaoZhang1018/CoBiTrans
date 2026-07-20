@@ -61,5 +61,95 @@
     ```bash
 	pip install -r requirements.txt
 	```
+    
+ ## 📥 Pre-trained Weights
 
-   
+ Before training or testing, prepare the following files:
+
+```text
+CoBiTrans/
+├── models/
+│   ├── cldm_v21.yaml
+│   ├── control_sd21_ini.ckpt
+│   └── open_clip_model.safetensors
+└── checkpoints/
+    └── model-epoch=60.ckpt
+```
+
+Please also update `pretrained_path` in `models/cldm_v21.yaml` to the local path of `open_clip_model.safetensors`.
+
+## 🗂️ Dataset Preparation
+
+The current data loader reads training samples from `dataset/train.json` and loads source and target images from the following folders:
+
+```text
+CoBiTrans/
+├── dataset/
+│   ├── train.json
+│   └── test.json
+├── dataset_source/
+├── dataset_control/
+└── dataset_enhance/
+```
+
+A training JSON file can be organized as follows:
+
+```json
+{
+  "data": [
+    {
+      "source": "visible/000001.jpg",
+      "target": "infrared/000001.jpg",
+      "prompt": "Generate an infrared image. Summer."
+    },
+    {
+      "source": "infrared/000001.jpg",
+      "target": "visible/000001.jpg",
+      "prompt": "Generate a visible image. Daytime."
+    }
+  ]
+}
+```
+
+For paired bidirectional synchronous training, place the VIS-to-IR and IR-to-VIS samples of the same scene consecutively in `train.json`.
+
+Supported prompt forms include:
+
+```text
+Generate an infrared image.
+Generate an infrared image. Summer.
+Generate an infrared image. Winter.
+Generate a visible image.
+Generate a visible image. Daytime.
+Generate a visible image. Nighttime.
+```
+
+## 🏋️ Training
+
+Edit the configurations in `tutorial_train.py`, including `resume_path`, `gpu_ids`, `batch_size`, `learning_rate`, and checkpoint settings. Then run:
+
+```bash
+python tutorial_train.py
+```
+
+The training script uses distributed data parallel training and a consecutive distributed sampler to preserve the paired bidirectional sample order.
+
+## 🧪 Testing
+
+Edit the following paths at the beginning of `test.py`:
+
+```python
+config_path = "./models/cldm_v21.yaml"
+ckpt_path = "./checkpoints/model-epoch=60.ckpt"
+json_path = "./dataset/test.json"
+data_root = "./dataset"
+save_dir = "./results"
+```
+
+Run inference with:
+
+```bash
+python test.py
+```
+
+The translated images will be saved under `save_dir` while preserving the relative target paths defined in `test.json`.
