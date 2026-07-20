@@ -57,8 +57,7 @@
     
  ## 📥 Pre-trained Weights
 
- The pretrained weights of CoBiTrans are available on
-[Google Drive](https://drive.google.com/drive/folders/19BlIVOzIX5hxmyXOd0ZGLhyIhjW6j6n6?usp=drive_link).
+The pretrained weights of CoBiTrans are available on [Baidu Netdisk](https://pan.baidu.com/s/1Zb6VYej8LXBtjSfp0T-j1w?pwd=hhym) (extraction code: `hhym`).
 Please place the downloaded files in the following directory:
 
 ```text
