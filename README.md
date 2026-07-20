@@ -39,3 +39,27 @@
 ###  Framework
 
 <img src="figure/2.png" width="90%"/>
+
+## 🛠️ Create Environment
+
+1. **Clone this repository:**
+
+   ```bash
+   git clone https://github.com/HaoZhang1018/CoBiTrans.git
+   cd CoBiTrans
+   ```
+
+2. **Create a Conda environment (recommended):**
+
+   ```bash
+   conda create -n cobitrans python=3.10 -y
+   conda activate cobitrans
+   ```
+
+3.  **Install dependency packages:**
+    
+    ```bash
+	pip install -r requirements.txt
+	```
+
+   
