@@ -83,4 +83,4 @@ model:
       params:
         freeze: True
         layer: "penultimate"
-        pretrained_path: "/data/hym/RGB2IR/models/open_clip_model.safetensors"
+        pretrained_path: "./models/open_clip_model.safetensors"
